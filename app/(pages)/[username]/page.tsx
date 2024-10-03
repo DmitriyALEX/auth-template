@@ -52,7 +52,7 @@ const Profile = ({ params }: { params: { username: string } }) => {
                 }
             }
         }
-    }, [params.username, fetchedData, loadProfile, router, currentUserUsername, loading])
+    }, [params.username, currentUserUsername, loading])
 
     if (loading) {
         return <Loader />
