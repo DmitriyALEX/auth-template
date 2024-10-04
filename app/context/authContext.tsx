@@ -55,25 +55,25 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const unsubscribe = onAuthStateChanged(auth, async currentUser => {
             setUser((currentUser as unknown) as IFirebaseUser)
 
-            if (currentUser) {
-                const token = (currentUser as IFirebaseUser)?.stsTokenManager.accessToken
-                if (token) setAccessToken(token)
+            // if (currentUser) {
+            //     const token = (currentUser as IFirebaseUser)?.stsTokenManager.accessToken
+            //     if (token) setAccessToken(token)
 
-                const response = await fetch(urls.checkUser, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        email: currentUser.email,
-                        fullName: currentUser.displayName,
-                        image: currentUser.photoURL,
-                        uid: currentUser.uid,
-                    }),
-                })
-                const data = await response.json()
-                setFetchedData(data)
-            }
+            //     const response = await fetch(urls.checkUser, {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json',
+            //         },
+            //         body: JSON.stringify({
+            //             email: currentUser.email,
+            //             fullName: currentUser.displayName,
+            //             image: currentUser.photoURL,
+            //             uid: currentUser.uid,
+            //         }),
+            //     })
+            //     const data = await response.json()
+            //     setFetchedData(data)
+            // }
             setLoading(false)
         })
         return () => unsubscribe()
