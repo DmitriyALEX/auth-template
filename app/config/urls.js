@@ -15,13 +15,13 @@
 
 export const urls = {
     //CHECK USER
-    checkUser: `/api/check-user`,
+    checkUser: '/api/check-user',
     //CREATE OR UPDATE USERNAME
-    setUsername: `/api/set-username`,
+    setUsername: '/api/set-username',
 
     //DELETE PROFILE
-    deleteUserProfile: `/api/delete-profile`,
+    deleteUserProfile: '/api/delete-profile',
 
     //PUBLIC PROFILE
-    publicProfile: `/api/public-profile`,
+    publicProfile: '/api/public-profile',
 }
