@@ -9,11 +9,15 @@ export async function POST(req: NextRequest) {
             where: { email: userInfo.email },
         })
 
-        if (checkUserInfo) {
-            return NextResponse.json({ status: 'userCreated', checkUserInfo })
-        } else {
-            return NextResponse.json({ status: 'user not found' })
-        }
+        return NextResponse.json({ status: 'user' })
+
+        //////
+        // if (checkUserInfo) {
+        //     return NextResponse.json({ status: 'userCreated', checkUserInfo })
+        // } else {
+        //     return NextResponse.json({ status: 'user not found' })
+        // }
+        ////////
 
         // if (!checkUserInfo) {
         //     const newUser = await prisma.user.create({
