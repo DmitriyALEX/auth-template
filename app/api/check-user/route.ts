@@ -4,11 +4,16 @@ import prisma from '@/app/helpers/prismadb'
 export async function POST(req: NextRequest) {
     try {
         const userInfo = await req.json()
-        return NextResponse.json({ status: 'userCreated', userInfo })
 
-        // const checkUserInfo = await prisma.user.findUnique({
-        //     where: { email: userInfo.email },
-        // })
+        const checkUserInfo = await prisma.user.findUnique({
+            where: { email: userInfo.email },
+        })
+
+        if (checkUserInfo) {
+            return NextResponse.json({ status: 'userCreated', checkUserInfo })
+        } else {
+            return NextResponse.json({ status: 'user not found' })
+        }
 
         // if (!checkUserInfo) {
         //     const newUser = await prisma.user.create({
