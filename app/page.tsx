@@ -67,7 +67,7 @@ export default function Home() {
                     />
                 </>
             ) : (
-                <button onClick={handleSignOut}>signOut</button>
+                <button onClick={handleSignOut}>signOutф</button>
             )}
         </section>
     )
