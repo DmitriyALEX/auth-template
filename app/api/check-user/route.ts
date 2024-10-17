@@ -5,6 +5,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 export async function POST(req: NextRequest) {
     try {
+        await prisma.$connect()
         const userInfo = await req.json()
 
         const checkUserInfo = await prisma.user.findUnique({
@@ -15,6 +16,8 @@ export async function POST(req: NextRequest) {
     } catch (e) {
         console.error(e)
         return NextResponse.json({ success: false, error: 'Internal Server Error' }, { status: 500 })
+    } finally {
+        await prisma.$disconnect()
     }
 }
 
