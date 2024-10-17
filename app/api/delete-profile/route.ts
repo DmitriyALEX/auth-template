@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import prisma from '@/app/helpers/prismadb'
+import prisma from '@/app/helpers/prismadb.d'
 import admin from '@/app/config/firebaseAdmin'
 
 export async function DELETE(req: NextRequest) {
